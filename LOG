@@ -1,0 +1,67 @@
+# PROJECT DEVELOPMENT LOG (LOG)
+
+Tập tin này ghi chép lại toàn bộ biên niên sử thay đổi, nâng cấp và phát triển của dự án **Vietnam Horror AI Game Factory (DƯỚI GIẾNG)**.
+
+---
+
+## 📅 [2026-05-21] - MỐC HOÀN THÀNH TRIỂN KHAI & ĐẨY CODE LÊN GIT (MỚI NHẤT)
+
+### 🛠️ Các Thay Đổi & Nâng Cấp Kỹ Thuật (Changes & Updates)
+* **Sửa lỗi cú pháp app.js**:
+  - Phát hiện và xử lý triệt để lỗi cú pháp JavaScript tại dòng 1459-1460 (dòng đóng template literal `";` bị lặp lại 2 lần liên tiếp), khắc phục lỗi `SyntaxError: Unexpected token 'class'`.
+  - Kiểm thử tĩnh cú pháp toàn bộ tệp tin thành công (`node -c app.js` trả về Exit Code 0).
+* **Đồng bộ hóa logic văn bản (Text & Graphic Sync)**:
+  - Sửa đổi switch-case `case 'altar'` trong hàm `renderLocation()` của `app.js` để đồng bộ hoàn toàn với tranh Vector Inline SVG:
+    - Trạng thái chưa giải: Mô tả bối cảnh chăng chịt chỉ đỏ trừ tà, bùa chú giấy vàng và búp bê gỗ chú Tễu với nụ cười đông cứng rợn người.
+    - Trạng thái đã giải: Mô tả chú Tễu rung lên bần bật, đôi mắt đỏ ngầu mở to đầy căm hờn, mạng chỉ đỏ phát sáng rực nhịp thở rồi bốc khói đen.
+    - Trạng thái đập phá: Mô tả chú Tễu vỡ đôi nằm vương vãi cạnh bát hương nát vụn và chỉ đỏ đứt lìa dưới đất.
+* **Tích hợp Concept Art thiết kế mới**:
+  - Di chuyển tệp tin hình ảnh concept bàn thờ gỗ chú Tễu (`vietnamese_horror_altar_design_1779365654790.png`) vào thư mục tài nguyên chính của web tại `assets/vietnamese_horror_altar_design.png`.
+  - Cập nhật [index.html](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/index.html) bổ sung phần **Mỹ Thuật Cảnh Vật (Environment & Prop Concept Art)** trong Tab 1 (Concept) để hiển thị bức ảnh mới đồng bộ với dàn nhân vật chính phụ khác.
+
+### 🔒 Bảo Mật & Git Deployment (Git Configuration)
+* Khởi tạo Git repository cục bộ tại thư mục dự án.
+* Tạo tệp [.gitignore](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/.gitignore) để chặn nghiêm ngặt các tệp tin chứa thông tin bảo mật (`.env`, `.evn`) chứa `GITHUB_TOKEN`, thư mục dependencies `node_modules/`, các file bóng macOS `._*` và thư mục mô phỏng `scratch/`.
+* Thực hiện commit đầu tiên: `Initial commit: Vietnam Horror AI Game Factory (DƯỚI GIẾNG)`.
+* Cấu hình Git remote URL: `https://github.com/mrtony2025/ty-kute.git` kết hợp với Token bảo mật.
+* Thực hiện đẩy thành công toàn bộ mã nguồn lên nhánh `main` trên GitHub:
+  - Repository URL: [https://github.com/mrtony2025/ty-kute](https://github.com/mrtony2025/ty-kute)
+
+---
+
+## 📅 [2026-05-21] - PHÁT TRIỂN NÂNG CẤP ĐỒ HỌA VECTOR SVG & spotlight ĐÈN PIN (Giai Đoạn 4)
+
+* Thay thế các hộp CSS đơn giản ở 4 địa điểm trong minigame bằng đồ họa Inline SVG chi tiết cao (Sân trọ trăng máu, Radio cabinet gỗ tinh xảo, Ban thờ bập bùng khói nhang cháy đỏ, Miệng giếng bê tông rêu phong nhìn từ trên xuống).
+* Triển khai cơ chế che phủ bóng tối qua CSS pseudo-element và tạo hiệu ứng vầng sáng đèn pin Spotlight tròn 85px di chuyển mượt mà bám theo tọa độ chuột/touch (`--mouse-x`, `--mouse-y`).
+* Thiết lập Stacking Context cho phép mắt đỏ oán linh và jumpscare oán hồn hiện xuyên qua lớp bóng tối đèn pin khi cạn pin hoặc tắt đèn.
+
+---
+
+## 📅 [2026-05-21] - PHÁT TRIỂN MÃ NGUỒN C++ UNREAL ENGINE & TRÌNH DEPLOY DUMMY (Giai Đoạn 3)
+
+* Hoàn thiện mã nguồn C++ Unreal Engine 5.4 cho 3 Module lõi:
+  - `BPC_FearDirector.h/cpp`
+  - `BPC_InspectionComponent.h/cpp`
+  - `PuzzleBase.h/cpp`
+* Xây dựng script triển khai tự động `deploy_to_ue5.js` có tính năng tự động nhận diện tên dự án từ tệp `.uproject` và đổi macro API tương ứng.
+* Vá lỗi loại trừ file hệ thống ẩn `._*` của macOS trên SSD ngoài.
+* Chạy thử nghiệm deploy thành công trên dự án mô phỏng `DummyHorrorGame` trong thư mục `scratch/`.
+
+---
+
+## 📅 [2026-05-21] - PHÁT TRIỂN WEB SYNTHESIZER DSP & NARRATIVE (Giai Đoạn 2)
+
+* Triển khai Web Audio API trên Dashboard để sinh âm thanh tiếng nhiễu sóng radio và loa phường rít theo thời gian thực tương tác với Stress Level.
+* Tích hợp cơ chế cạn kiệt pin đèn pin và tích lũy stress trong bóng tối (+2.5%/s) hoặc giảm stress khi ở nơi sáng.
+* Thiết lập 3 Ending cho minigame chơi thử (Good: Hóa Giải, Bad: Chìm Sâu, Secret: Sự Thật).
+* Cấu hình server API lưu trữ JSON (`events.json` và `prompts.json`).
+* Bổ sung Tab 8 hiển thị tin tức Tai Ương và bức thư ra mắt của Rare Reversee.
+
+---
+
+## 📅 [2026-05-21] - KHỞI TẠO KHUNG DỰ ÁN (Giai Đoạn 1)
+
+* Thiết lập cấu trúc thư mục tài liệu thiết kế: `GameStudio/`, `AI/`, `Narrative/`, `Audio/`.
+* Viết tài liệu triết lý kinh dị đô thị Việt Nam `horror-game-concept-v1.md` và cơ chế tính toán stress `FearSystemDesignDoc.md`.
+* Xây dựng cấu trúc HTML & CSS tối dạng Dark Horror Glassmorphism cho Dashboard.
+* Chạy thử Express server thành công trên cổng 4000.

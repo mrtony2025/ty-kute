@@ -1,0 +1,48 @@
+# PROJECT MEMORY FILE (MEMORY)
+
+Tập tin lưu giữ trạng thái, quyết định thiết kế và tri thức cốt lõi của dự án **Vietnam Horror AI Game Factory (DƯỚI GIẾNG)** để hỗ trợ các phiên làm việc tiếp theo.
+
+---
+
+## 🏛️ 1. Bản Đồ Kiến Trúc Hệ Thống (System Architecture Map)
+
+### 📂 Cấu Trúc Thư Mục Quan Trọng
+* **[`/app.js`](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/app.js)**: Logic điều khiển của Dashboard, game-loop minigame, Web Audio DSP, và xử lý tương tác DOM.
+* **[`/index.html`](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/index.html)**: Cấu trúc giao diện các Tab của Dashboard, bao gồm tab Concept Art mới bổ sung và Viewport Minigame.
+* **[`/index.css`](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/index.css)**: Phong cách Dark Horror / Glassmorphism, hiệu ứng spotlight đèn pin bằng CSS gradient và hoạt họa nhấp nháy mắt oán linh.
+* **[`/server.js`](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/server.js)**: REST API backend phục vụ lưu/đọc dữ liệu sự kiện siêu nhiên và prompt.
+* **[`/assets/`](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/assets/)**: Chứa các ảnh Concept Art tĩnh (`main_character.png`, `well_ghost.png`, `eccentric_landlord.png` và tệp mới `vietnamese_horror_altar_design.png`).
+* **[`/Systems/UE5Modules/Source/`](file:///Volumes/SSD BIG/Project/DICH VU KH 2026/TVT AGENCY/Antigravity/06_TOOLS/ty-kute/Systems/UE5Modules/Source/)**: Mã nguồn C++ Unreal Engine 5.4 sạch chuẩn hóa.
+
+---
+
+## ⚙️ 2. Các Biến Số & Logic Trò Chơi (Minigame State Variables)
+
+Trong `app.js`, các trạng thái trò chơi được quản lý bởi các biến số toàn cục sau:
+* `gameActive`: Boolean kích hoạt game-loop.
+* `gameStress` (0 - 100): Mức hoảng loạn của người chơi. Đạt 100% dẫn tới **Ending Chìm Sâu**.
+* `gameBattery` (0 - 100): Dung lượng pin đèn pin.
+* `gameFlashlight`: Boolean trạng thái Bật/Tắt đèn pin.
+* `gameLocation` (`yard`, `radio`, `altar`, `well`): Vị trí hiện tại của người chơi.
+* `solvedRadio`: Boolean xác nhận giải mã tần số AM `108`. Mở khóa nhận [Lá bùa phong ấn] trong hành lý.
+* `solvedAltar` (`false`, `true`, `'destroyed'`): Trạng thái bàn thờ treo. Quyết định Ending:
+  - `true` (Đã dán bùa) -> Thực hiện nghi lễ tại giếng để đạt **Ending Hóa Giải**.
+  - `'destroyed'` (Đã đập phá) -> Giải phóng oán linh tại giếng để đạt **Ending Sự Thật**.
+* `discoveredTruth`: Boolean phát hiện xương người dưới đáy giếng (chỉ khi soi đèn pin xuống lòng giếng). Điều kiện cần để chọn hành động đập phá bàn thờ.
+
+---
+
+## 🎨 3. Quy Tắc Mỹ Thuật Kinh Dị Động (Horror UI Design Rules)
+
+* **Spotlight Masking**: Lớp phủ `.game-viewport::after` sử dụng CSS Radial Gradient vẽ vầng sáng 85px bám theo tọa độ chuột.
+* **Bóng Tối Tuyệt Đối**: Khi `gameFlashlight = false` hoặc `gameBattery <= 0`, lớp phủ chuyển thành màu `#000` tuyệt đối.
+* **Hiển thị Xuyên Thấu**: Đôi mắt đỏ oán linh và jumpscare mặt quỷ phải có `z-index` lớn hơn 8 (lớp phủ bóng tối) để hiển thị rực rỡ xuyên qua bóng đêm đen đặc, tạo cảm giác rợn tóc gáy.
+* **Màu sắc chủ đạo**: Nền xám đen tối (#050508), viền và ánh sáng cảnh báo màu đỏ máu (#ff003c hoặc #8a0000), ánh sáng giải đố thành công xanh lục neon (#39ff14), bùa chú vàng rực rỡ (#ffd700).
+
+---
+
+## 🔐 4. Quy Tắc Bảo Mật Repository (Git Push Rules)
+
+* **Ngăn chặn rò rỉ Token**: Mọi tệp chứa biến môi trường cấu hình (`.env`, `.evn`) chứa `GITHUB_TOKEN` của tài khoản `mrtony2025` bắt buộc phải được duy trì trong `.gitignore`.
+* **Xác thực trước khi commit**: Luôn kiểm tra `git status` trước khi commit để đảm bảo không vô tình đưa các tệp cấu hình nhạy cảm lên.
+* **Cấu hình Remote an toàn**: Tích hợp token trực tiếp vào URL Git khi cần đẩy code tự động/non-interactive (`https://<token>@github.com/mrtony2025/ty-kute.git`) thay vì lưu thông tin đăng nhập trong lịch sử lệnh shell.
