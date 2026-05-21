@@ -1,0 +1,14 @@
+{
+  "name": "vietnam-horror-ai-game-factory-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "deploy-ue5": "node deploy_to_ue5.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}

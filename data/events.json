@@ -1,0 +1,37 @@
+[
+  {
+    "id": "EV_LOW_001",
+    "name": "Đèn Neon Chập Chờn",
+    "severity": "LOW",
+    "desc": "Bóng đèn neon tuýp dài treo hành lang nháy đỏ rồi tắt ngóm trong 1.5 giây.",
+    "stress": 30
+  },
+  {
+    "id": "EV_MED_001",
+    "name": "Loa Phường Rè Rít",
+    "severity": "MEDIUM",
+    "desc": "Loa phường phát ra tiếng rè rít tần số cao, phát thanh viên đọc thông báo giải tỏa với giọng méo mó.",
+    "stress": 60
+  },
+  {
+    "id": "EV_MED_003",
+    "name": "Tiếng Dép Cao Su Lê Bước",
+    "severity": "MEDIUM",
+    "desc": "Tiếng dép tổ ong hoặc dép nhựa kéo loẹt xoẹt trên hành lang và dừng trước cửa phòng.",
+    "stress": 70
+  },
+  {
+    "id": "EV_HIGH_001",
+    "name": "Nến Bàn Thờ Vụt Tắt",
+    "severity": "HIGH",
+    "desc": "Nến đỏ trên bàn thờ phụt tắt đột ngột kèm tiếng thở dài ngay sát tai khi nhặt thư tuyệt mệnh.",
+    "stress": 80
+  },
+  {
+    "id": "EV_CRIT_002",
+    "name": "Giếng Trào Nước Đen",
+    "severity": "CRITICAL",
+    "desc": "Giếng bê tông ở sân giữa nứt toác, trào nước bùn đen ngòm cùng tóc dài trào ra lê láng.",
+    "stress": 95
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "prompt-1",
+    "name": "Prompt 1: Fear Director System Blueprint Generator",
+    "content": "You are a Lead Gameplay Engineer for Unreal Engine 5.4 specializing in psychological horror mechanics.\nGenerate the architecture and logic for a component-based \"Fear Director System\" (BPC_FearDirector) that dynamically drives game tension based on player parameters.\nVariables to track: PlayerStressLevel (0.0-100.0), IsInDarkness (Bool), DistanceToEntity (Float), CooldownTimerActive (Bool).\nTrigger low/medium/high severity events based on stress thresholds."
+  },
+  {
+    "id": "prompt-2",
+    "name": "Prompt 2: 3D Clue Inspection & Interaction Component",
+    "content": "You are a Senior UE5 Developer. We need an Actor Component called \"BPC_InspectionComponent\" that handles 3D object investigation inside a first-person horror game.\nWrite the interaction logic allowing the player to look at an item, pick it up into a private 3D inspection view, rotate it, detect hidden details using raycast colliders, and store clue data."
+  },
+  {
+    "id": "prompt-3",
+    "name": "Prompt 3: Puzzle State Machine & Penalty Event Integrator",
+    "content": "You are a Systems Designer and Programmer. Generate a modular \"BP_PuzzleBase\" class and \"BP_PuzzleManager\" for a horror environment.\nGOAL:\nBuild a puzzle system that manages puzzle states (Locked, Active, Solved, Failed) and connects directly to the Fear Director for penalty events.\nREQUIREMENTS:\n1. State Management (EPuzzleState enum).\n2. Interaction logic checks for RequiredClues.\n3. Failure & Stress Penalty Loop: call AddStressInstant(15.0) and trigger OnPuzzleFailurePenalty.\n4. Solve transition & event."
+  }
+]

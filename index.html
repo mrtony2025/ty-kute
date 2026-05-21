@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnam Horror AI Game Factory | DƯỚI GIẾNG</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Special+Elite&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <!-- Background overlay effects -->
+    <div class="vignette"></div>
+    <div class="ambient-glow"></div>
+    <div class="scanlines"></div>
+
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-logo">
+                <i class="fa-solid fa-ghost logo-icon"></i>
+                <div class="logo-text">
+                    <h1>VIETNAM HORROR AI GAME FACTORY</h1>
+                    <p class="subtitle">PROJECT: DƯỚI GIẾNG (UNDER THE WELL)</p>
+                </div>
+            </div>
+            <div class="header-status">
+                <span class="status-indicator"></span>
+                <span class="status-label">FACTORY PIPELINE: ONLINE</span>
+            </div>
+        </header>
+
+        <!-- Main Content Layout -->
+        <div class="main-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <button class="nav-item active" data-tab="concept">
+                        <i class="fa-solid fa-scroll"></i>
+                        <span>1. Concept Game v1</span>
+                    </button>
+                    <button class="nav-item" data-tab="fear-system">
+                        <i class="fa-solid fa-brain"></i>
+                        <span>2. Hệ thống Sợ hãi</span>
+                    </button>
+                    <button class="nav-item" data-tab="prompts">
+                        <i class="fa-solid fa-terminal"></i>
+                        <span>3. Thư viện Prompt AI</span>
+                    </button>
+                    <button class="nav-item" data-tab="events">
+                        <i class="fa-solid fa-database"></i>
+                        <span>4. Sự kiện Siêu nhiên</span>
+                    </button>
+                    <button class="nav-item" data-tab="sounds">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span>5. Phân loại Âm thanh</span>
+                    </button>
+                    <button class="nav-item" data-tab="blueprints">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <span>6. UE5 Blueprint Templates</span>
+                    </button>
+                    <button class="nav-item" data-tab="playable">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>7. Demo Chơi Thử</span>
+                    </button>
+                    <button class="nav-item" data-tab="scourge-news">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <span>8. Tin Tức Tai Ương</span>
+                    </button>
+                </nav>
+
+                <!-- Interactive Simulation Panel -->
+                <div class="sim-panel">
+                    <h3><i class="fa-solid fa-sliders"></i> PROCEDURAL AUDIO SIMULATOR</h3>
+                    <p class="sim-desc">Giả lập âm thanh DSP thời gian thực (Web Audio API) mô phỏng không khí ngõ trọ Hà Nội cổ.</p>
+                    
+                    <div class="audio-control-group">
+                        <label>Stress Level của Nhân vật</label>
+                        <div class="slider-container">
+                            <input type="range" id="stress-slider" min="0" max="100" value="0">
+                            <span id="stress-value">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="sim-buttons">
+                        <button id="btn-play-static" class="sim-btn">
+                            <i class="fa-solid fa-tv"></i> Nhiễu TV CRT
+                        </button>
+                        <button id="btn-play-loa" class="sim-btn">
+                            <i class="fa-solid fa-bullhorn"></i> Loa Phường Rè
+                        </button>
+                        <button id="btn-play-gecko" class="sim-btn">
+                            <i class="fa-solid fa-bug"></i> Thạch Sùng Kêu
+                        </button>
+                        <button id="btn-play-smash" class="sim-btn">
+                            <i class="fa-solid fa-gavel"></i> Đập Phá Đồ
+                        </button>
+                        <button id="btn-play-knife" class="sim-btn">
+                            <i class="fa-solid fa-wave-square"></i> Mài Dao Thép
+                        </button>
+                        <button id="btn-play-laugh" class="sim-btn">
+                            <i class="fa-solid fa-face-laugh-squint"></i> Cười Rùng Rợn
+                        </button>
+                        <button id="btn-play-rustle" class="sim-btn">
+                            <i class="fa-solid fa-book-open"></i> Sách Báo Sột Soạt
+                        </button>
+                        <button id="btn-play-drip" class="sim-btn">
+                            <i class="fa-solid fa-droplet"></i> Giọt Nước Dột
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Document Content Viewer -->
+            <main class="content-viewer">
+                <div class="card glass">
+                    <!-- Tab: Concept -->
+                    <div class="tab-content active" id="tab-concept">
+                        <div class="content-header">
+                            <h2>DƯỚI GIẾNG (UNDER THE WELL)</h2>
+                            <span class="badge warning">Strategic Draft</span>
+                        </div>
+                        <div class="markdown-body">
+                            <h3>Bối cảnh đô thị Việt Nam cổ</h3>
+                            <p>Một con ngõ trọ ẩm ướt ở Hà Nội trước ngày giải phóng mặt bằng, một cái giếng bị lấp sâu chứa đựng sự oán hận kéo dài hàng chục năm. Phong cách Low-Poly / Realistic Hybrid tận dụng Lumen của UE5 mang đến bầu không khí đen tối ngột ngạt.</p>
+                            
+                            <div class="features-grid">
+                                <div class="feature-card">
+                                    <i class="fa-solid fa-door-closed"></i>
+                                    <h4>Fixed-Space Tension</h4>
+                                    <p>Không gian hẹp, cửa khóa chặt buộc người chơi phải đối mặt trực diện với nỗi sợ.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <h4>3D Inspection</h4>
+                                    <p>Cầm nắm, xoay vật phẩm 3D để giải mã các thông điệp ẩn giấu bên dưới.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <i class="fa-solid fa-code-fork"></i>
+                                    <h4>3 Branching Endings</h4>
+                                    <p>Các lựa chọn và số manh mối tìm thấy sẽ quyết định kết cục: Hóa Giải, Chìm Sâu, hoặc Sự Thật Kinh Hoàng.</p>
+                                </div>
+                            </div>
+
+                            <h3>Hồ Sơ Nhân Vật (Character Showcase)</h3>
+                            <p class="showcase-intro">Bản phác thảo tạo hình 3D cho dàn nhân vật chính và phụ trong bối cảnh nhà trọ, cái giếng linh thiêng u tối.</p>
+                            <div class="character-showcase">
+                                <div class="character-card">
+                                    <div class="char-img-wrapper">
+                                        <img src="/assets/main_character.png" alt="Minh - Nhân vật chính" class="char-img">
+                                    </div>
+                                    <div class="char-info">
+                                        <h4>Minh (Nhân Vật Chính)</h4>
+                                        <p class="char-role"><i class="fa-solid fa-user-shield"></i> Người sống sót</p>
+                                        <p class="char-desc">Chàng sinh viên tỉnh lẻ vừa dọn đến dãy trọ. Bị cuốn vào vòng xoáy tâm linh sau khi tò mò soi đèn xuống giếng nước bê tông sau nhà.</p>
+                                    </div>
+                                </div>
+                                <div class="character-card">
+                                    <div class="char-img-wrapper">
+                                        <img src="/assets/well_ghost.png" alt="Oán linh giếng cổ" class="char-img">
+                                    </div>
+                                    <div class="char-info">
+                                        <h4>Oán Linh Giếng Cổ</h4>
+                                        <p class="char-role ghost-role"><i class="fa-solid fa-ghost"></i> Thực thể tâm linh</p>
+                                        <p class="char-desc">Linh hồn oán hận bị trói buộc bởi xiềng xích sâu dưới lòng giếng cổ. Luôn chực chờ kéo những kẻ tò mò xuống cõi nước âm u.</p>
+                                    </div>
+                                </div>
+                                <div class="character-card">
+                                    <div class="char-img-wrapper">
+                                        <img src="/assets/eccentric_landlord.png" alt="Ông Thịnh - Chủ trọ lập dị" class="char-img">
+                                    </div>
+                                    <div class="char-info">
+                                        <h4>Ông Thịnh</h4>
+                                        <p class="char-role landlord-role"><i class="fa-solid fa-key"></i> Chủ trọ lập dị</p>
+                                        <p class="char-desc">Kẻ canh giữ dãy trọ. Biết rất nhiều về cái chết bí ẩn của cô gái dưới giếng nhưng luôn tìm cách che giấu bằng những lời mê tín dọa dẫm.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Mỹ Thuật Cảnh Vật (Environment & Prop Concept Art)</h3>
+                            <p class="showcase-intro">Bản phác thảo ý tưởng nghệ thuật cho các vật thể tâm linh và bối cảnh phụ trong game.</p>
+                            <div class="character-showcase">
+                                <div class="character-card">
+                                    <div class="char-img-wrapper">
+                                        <img src="/assets/vietnamese_horror_altar_design.png" alt="Thiết kế Ban thờ gỗ chú Tễu" class="char-img">
+                                    </div>
+                                    <div class="char-info">
+                                        <h4>Ban Thờ Treo & Chỉ Đỏ Phong Ấn</h4>
+                                        <p class="char-role"><i class="fa-solid fa-place-of-worship"></i> Concept Art Bàn Thờ</p>
+                                        <p class="char-desc">Thiết kế ban thờ treo tường gỗ mục nát, chăng chịt mạng chỉ đỏ yểm bùa và búp bê chú Tễu gỗ bị trói bằng chỉ đỏ ở trung tâm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Fear System -->
+                    <div class="tab-content" id="tab-fear-system">
+                        <div class="content-header">
+                            <h2>FEAR & SANITY CORE SYSTEM</h2>
+                            <span class="badge danger">Core System</span>
+                        </div>
+                        <div class="markdown-body">
+                            <h3>Fear Director (Hệ điều phối kinh dị động)</h3>
+                            <p>Theo dõi stress level dựa trên bóng tối, khoảng cách quái vật và các lỗi giải đố để kích hoạt sự kiện siêu nhiên phù hợp.</p>
+                            
+                            <h3>Sanity (Trạng thái tỉnh táo)</h3>
+                            <p>Sanity giảm dần làm méo hình ảnh (Vignette, Chromatic Aberration) và tạo ra ảo ảnh ma đứng góc tối tự tan biến khi rọi đèn pin.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Prompts -->
+                    <div class="tab-content" id="tab-prompts">
+                        <div class="content-header">
+                            <h2>AI STUDIO PROMPT LIBRARY</h2>
+                            <span class="badge primary">AI Automation</span>
+                        </div>
+                        <div class="markdown-body flex-container">
+                            <!-- Left: Dynamic Prompt List -->
+                            <div class="dynamic-list-panel">
+                                <h3>Thư viện Prompt Động (Từ file prompts.json)</h3>
+                                <div id="prompts-container">
+                                    <!-- Rendered dynamically by app.js -->
+                                </div>
+                            </div>
+                            
+                            <!-- Right: Create Prompt Form -->
+                            <div class="form-panel">
+                                <h3><i class="fa-solid fa-plus"></i> Thêm Prompt Mới</h3>
+                                <form id="form-add-prompt" class="form-card">
+                                    <div class="form-group">
+                                        <label for="prompt-name">Tên Prompt / Component</label>
+                                        <input type="text" id="prompt-name" placeholder="Ví dụ: BPC_SanityManager" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="prompt-content">Nội dung Prompt</label>
+                                        <textarea id="prompt-content" rows="6" placeholder="Nhập chỉ thị chi tiết cho AI Studio..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn-submit">Lưu vào Prompt Library</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Events -->
+                    <div class="tab-content" id="tab-events">
+                        <div class="content-header">
+                            <h2>PARANORMAL EVENT DATABASE</h2>
+                            <span class="badge info">Data Structure</span>
+                        </div>
+                        <div class="markdown-body flex-container">
+                            <!-- Left: Dynamic Event List -->
+                            <div class="dynamic-list-panel flex-2">
+                                <h3>Cơ sở dữ liệu Sự kiện Siêu nhiên Động</h3>
+                                <table class="event-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã ID</th>
+                                            <th>Tên Sự Kiện</th>
+                                            <th>Mức Độ</th>
+                                            <th>Hiện Tượng</th>
+                                            <th>Stress %</th>
+                                            <th>Hành Động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="events-table-body">
+                                        <!-- Rendered dynamically by app.js -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Right: Create Event Form -->
+                            <div class="form-panel flex-1">
+                                <h3><i class="fa-solid fa-plus"></i> Thêm Sự Kiện Siêu Nhiên</h3>
+                                <form id="form-add-event" class="form-card">
+                                    <div class="form-group">
+                                        <label for="event-id">Mã Sự Kiện ID</label>
+                                        <input type="text" id="event-id" placeholder="Ví dụ: EV_LOW_004" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event-name">Tên Sự Kiện</label>
+                                        <input type="text" id="event-name" placeholder="Ví dụ: Tiếng Rao Đêm" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event-severity">Mức Độ (Severity)</label>
+                                        <select id="event-severity" required>
+                                            <option value="LOW">LOW</option>
+                                            <option value="MEDIUM">MEDIUM</option>
+                                            <option value="HIGH">HIGH</option>
+                                            <option value="CRITICAL">CRITICAL</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event-desc">Hiện tượng Chi tiết</label>
+                                        <input type="text" id="event-desc" placeholder="Ví dụ: Tiếng rao bánh chưng vang lên..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event-stress">Ngưỡng Stress (%)</label>
+                                        <input type="number" id="event-stress" min="0" max="100" value="30" required>
+                                    </div>
+                                    <button type="submit" class="btn-submit">Lưu vào Database</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Sounds -->
+                    <div class="tab-content" id="tab-sounds">
+                        <div class="content-header">
+                            <h2>VIETNAMESE URBAN HORROR SOUND TAXONOMY</h2>
+                            <span class="badge success">Audio System</span>
+                        </div>
+                        <div class="markdown-body">
+                            <h3>Phân loại âm thanh bản địa Việt Nam</h3>
+                            <div class="sound-cards">
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                                    <h4>Loa Phường & Đài Cũ</h4>
+                                    <p>Nhạc hiệu rè, tiếng rao đêm "bánh khúc nóng" méo giọng tạo sự rùng rợn quen thuộc.</p>
+                                </div>
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-shoe-prints"></i></div>
+                                    <h4>Foley Độc Bản</h4>
+                                    <p>Tiếng dép cao su trượt trên gạch hoa cũ ẩm nước, tiếng con thạch sùng gõ tặc lưỡi dồn dập.</p>
+                                </div>
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-wind"></i></div>
+                                    <h4>Vang Vọng Hẹp (Ngõ Sâu)</h4>
+                                    <p>Reverb ngõ hẹp 2 mét giữa các dãy nhà trọ cũ tạo cảm giác vang vọng bí bách.</p>
+                                </div>
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-gavel"></i></div>
+                                    <h4>Đập Phá Đồ Đạc</h4>
+                                    <p>Xung động méo tiếng mô tả các sự kiện giận dữ cực độ, đập bát hương hoặc phá bàn thờ phong ấn.</p>
+                                </div>
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-wave-square"></i></div>
+                                    <h4>Mài Dao Kim Loại</h4>
+                                    <p>Tiếng rít chói tai ma sát của kim loại trong ngõ tối, gợi báo thù ác độc.</p>
+                                </div>
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-face-laugh-squint"></i></div>
+                                    <h4>Tiếng Cười Rùng Rợn</h4>
+                                    <p>Tiếng cười khúc khích oán hận u uất quét dải tần nhanh chậm qua bộ lọc vang dội.</p>
+                                </div>
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-book-open"></i></div>
+                                    <h4>Sách Báo Sột Soạt</h4>
+                                    <p>Tiếng lật mở đứt quãng giấy tờ phong sương chứa đựng các vụ án mất tích bí ẩn.</p>
+                                </div>
+                                <div class="sound-card">
+                                    <div class="sound-icon"><i class="fa-solid fa-droplet"></i></div>
+                                    <h4>Nước Dột Tong Tỏng</h4>
+                                    <p>Nhịp giọt nước dột từ giếng cổ ẩm ướt vang lên âm thầm tạo áp lực cực độ cho nạn nhân.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Blueprints -->
+                    <div class="tab-content" id="tab-blueprints">
+                        <div class="content-header">
+                            <h2>UNREAL ENGINE 5 BLUEPRINT SCHEMAS</h2>
+                            <span class="badge secondary">UE5 modules</span>
+                        </div>
+                        <div class="markdown-body">
+                            <h3>Cấu trúc Logic và Hàm</h3>
+                            <p>Sơ đồ các hàm cốt lõi cho các lớp Blueprint đã được đóng gói sẵn để đưa vào UE5.4 Editor.</p>
+                            
+                            <div class="code-view">
+                                <div class="code-header">
+                                    <span>BPC_FearDirector.py (Logic Pseudocode)</span>
+                                </div>
+                                <pre><code># Timer run every 1.0 second
+def EvaluateStressAndEvents():
+    if CooldownActive:
+        PlayerStress = Max(0.0, PlayerStress - 0.2)
+        return
+        
+    stress_gain = 0.0
+    if IsInDarkness: stress_gain += 1.5
+        
+    if DistanceToGhost < 500.0: stress_gain += 5.0
+    elif DistanceToGhost < 1500.0: stress_gain += 2.0
+        
+    PlayerStress = Min(100.0, PlayerStress + stress_gain)
+    EvaluateParanormalTrigger()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Playable Minigame -->
+                    <div class="tab-content" id="tab-playable">
+                        <div class="content-header">
+                            <h2>DƯỚI GIẾNG: BẢN DEMO INTERACTIVE SLICE</h2>
+                            <span class="badge danger">Playable Demo</span>
+                        </div>
+                        <div class="markdown-body">
+                            <p>Đây là bản demo chơi thử tương tác dưới dạng Text-based / 2D point-and-click trực tiếp trên web để kiểm nghiệm các logic: <strong>Stress tăng dần trong tối</strong>, <strong>Soi đồ vật 3D tìm mật mã</strong>, và <strong>Phạt stress khi giải đố sai</strong>.</p>
+                            
+                            <div class="game-container">
+                                <!-- HUD -->
+                                <div class="game-hud">
+                                    <div class="hud-item">
+                                        <span class="hud-label"><i class="fa-solid fa-brain"></i> Stress:</span>
+                                        <div class="hud-bar-bg">
+                                            <div id="game-stress-bar" class="hud-bar-fill" style="width: 10%;"></div>
+                                        </div>
+                                        <span id="game-stress-lbl" class="hud-value">10%</span>
+                                    </div>
+                                    <div class="hud-item">
+                                        <span class="hud-label"><i class="fa-solid fa-battery-three-quarters"></i> Pin Đèn:</span>
+                                        <div class="hud-bar-bg">
+                                            <div id="game-battery-bar" class="hud-bar-fill battery" style="width: 100%;"></div>
+                                        </div>
+                                        <span id="game-battery-lbl" class="hud-value">100%</span>
+                                    </div>
+                                    <div class="hud-item">
+                                        <button id="game-btn-flashlight" class="game-hud-btn active">
+                                            <i class="fa-solid fa-lightbulb"></i> Đèn Pin: BẬT
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="game-workspace">
+                                    <!-- Screen View -->
+                                    <div class="game-screen" id="game-screen">
+                                        <div class="game-viewport" id="game-viewport"></div>
+                                        <div class="screen-overlay-scare" id="screen-overlay-scare"></div>
+                                        <div class="screen-content" id="screen-text-content">
+                                            <p class="room-desc">Bạn đang đứng ở góc sân tối tăm của khu nhà trọ cổ. Trước mặt bạn là một cái giếng cổ bằng bê tông bám đầy rêu phong, một chiếc bàn thờ treo trên tường gạch cũ và một chiếc radio đặt trên ghế gỗ chông chênh.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Interaction Menu & Inventory -->
+                                    <div class="game-controls">
+                                        <div class="control-box">
+                                            <h3><i class="fa-solid fa-hand"></i> Hành Động</h3>
+                                            <div class="action-buttons" id="game-action-buttons">
+                                                <!-- Action buttons generated dynamically -->
+                                            </div>
+                                        </div>
+
+                                        <div class="control-box">
+                                            <h3><i class="fa-solid fa-suitcase"></i> Hành Lý</h3>
+                                            <div class="inventory-list" id="game-inventory-list">
+                                                <span class="empty-inv">Trống rỗng</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Narrative Log -->
+                                <div class="game-log-panel">
+                                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Nhật Ký Hoạt Động</h3>
+                                    <div class="game-logs" id="game-logs">
+                                        <div class="log-entry system">> Khởi tạo hệ thống mô phỏng game "DƯỚI GIẾNG"...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Inspection Modal -->
+                        <div class="game-modal" id="game-inspect-modal">
+                            <div class="modal-content glass">
+                                <h3><i class="fa-solid fa-magnifying-glass"></i> Soi Chi Tiết Vật Phẩm</h3>
+                                <p class="modal-desc">Nhấp các nút để xoay vật phẩm 3 chiều tìm manh mối ẩn giấu.</p>
+                                
+                                <div class="inspect-view">
+                                    <div class="inspect-object-wrapper">
+                                        <div class="inspect-object" id="inspect-object">
+                                            <div class="object-face front">ẤM TRÀ CŨ</div>
+                                            <div class="object-face back">MÃ SỐ:<br><strong style="font-size: 1.5rem; color: var(--neon-red);">108</strong></div>
+                                            <div class="object-face top">Nắp Ấm</div>
+                                            <div class="object-face bottom">Mặt Đáy</div>
+                                            <div class="object-face left">Quai Ấm</div>
+                                            <div class="object-face right">Vòi Ấm</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="inspect-controls">
+                                    <button class="btn-inspect-dir" data-dir="left"><i class="fa-solid fa-arrow-left"></i> Trái</button>
+                                    <button class="btn-inspect-dir" data-dir="right"><i class="fa-solid fa-arrow-right"></i> Phải</button>
+                                    <button class="btn-inspect-dir" data-dir="up"><i class="fa-solid fa-arrow-up"></i> Lên</button>
+                                    <button class="btn-inspect-dir" data-dir="down"><i class="fa-solid fa-arrow-down"></i> Xuống</button>
+                                </div>
+
+                                <button id="btn-close-inspect" class="btn-submit">Đặt Vật Phẩm Xuống</button>
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- Tab: Scourge News -->
+                        <div class="tab-content" id="tab-scourge-news">
+                            <div class="content-header">
+                                <h2>TAI ƯƠNG | THE SCOURGE IS OFFICIALLY OUT NOW!</h2>
+                                <span class="badge success">Game Release</span>
+                            </div>
+                            <div class="markdown-body">
+                                <div class="letter-scroll-wrapper">
+                                    <div class="letter-scroll">
+                                        <div class="letter-header">
+                                            <h3>A Journey of Terror, Tears, and Gratitude</h3>
+                                            <p class="letter-sub">Saigon Urban Legends - Rare Reversee Team</p>
+                                        </div>
+                                        <hr class="letter-divider">
+                                        <div class="letter-body">
+                                            <p class="salutation">To our survivors, our community, and our darkest dreamers,</p>
+                                            
+                                            <p>The day has finally come. <strong>Tai Ương | The Scourge is officially LIVE!</strong> When we first launched in Early Access, we invited you to step into the haunting urban legends of Saigon. We had a vision of creating a pure, narrative-driven psychological horror experience deeply rooted in Vietnamese culture. Today, that vision is fully realized, but we need to make one thing absolutely clear: we did not cross this finish line alone.</p>
+                                            
+                                            <h4>To Our Early Access Survivors: You Built This With Us</h4>
+                                            <p>Before we talk about anything else, we must thank YOU. When The Scourge was just a raw, terrifying glimpse of what it could be, you took a massive leap of faith on a small indie studio from Vietnam. Your hard-earned money funded our development. Your detailed bug reports, your deep-dive lore theories on the Steam forums, YouTube,… and your raw reactions guided our hands. You didn't just play an unfinished game; you became our co-developers. Every scare, every atmospheric detail, and every polished puzzle in this official release has your fingerprints on it. For your trust, your passion, and your patience, we are eternally grateful.</p>
+                                            
+                                            <h4>A Confession and a Promise to Our Players</h4>
+                                            <p>Alongside our gratitude, we owe you an apology. Over the past months, we know we have been awfully quiet. We want you to know this: We have read every single comment, Steam review, bug report, and discussion thread. If we didn't reply to you, it wasn't because we didn't care. The sheer volume of work required to complete this massive update completely consumed us. We had to lock ourselves in the dark to finish building this nightmare.</p>
+                                            
+                                            <p>But we are back now. The silence is over. Moving forward, we are fully committed to listening, engaging, and delivering answers to you as fast as humanly possible. With a launch this size, a few bugs might still be lurking in the shadows. Don't panic. Report them to us. Our team has the coffee brewing and we are standing by, ready to jump in and squash any issues immediately.</p>
+                                            
+                                            <h4>It Takes a Village to Raise a Nightmare</h4>
+                                            <p>We want to express our deepest gratitude to our incredible partners who helped bring this project to life, thank you for believing in our dark vision and walking this terrifying path with us.</p>
+                                            <p>But most importantly, I want to thank the core team at Rare Reversee. You guys refused to give up. You stayed fiercely true to our original vision of atmospheric horror over casual jumpscares, pouring your blood, sweat, and trauma into every pixel. We did it.</p>
+                                            
+                                            <h4>What’s Next?</h4>
+                                            <p>This official launch is the ultimate version of The Scourge, but... it is not the end of the nightmare. The curse is far from broken.</p>
+                                            
+                                            <p>Soon, The Scourge will return to haunt you in a completely different form. A new shape. A new shadow.</p>
+                                            
+                                            <p class="question-highlight">Can you guess what it is?</p>
+                                            
+                                            <p>Thank you for surviving with us. Now, turn off the lights, put on your headphones, and welcome back to Saigon.</p>
+                                            
+                                            <div class="letter-signature">
+                                                <p>With deepest gratitude,</p>
+                                                <p class="signature-team">The Rare Reversee Team</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 TVT Agency & Antigravity AI Game Dev Framework. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="/app.js"></script>
+</body>
+</html>
